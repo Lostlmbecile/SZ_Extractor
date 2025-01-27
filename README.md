@@ -33,3 +33,10 @@ SZ_Extractor -p Game/Characters/Goku/Costumes/Base/Goku_Base.uasset -e GAME_UE5_
 ## Disclaimer
 
 Mainly for Sparking Zero, Fmodel is a lot more robust and offers conversion features along with many other things, this is mainly for devs to use since I haven't seen a cli version of Fmodel
+
+## TODOs
+For reference:
+- Duplicate handling
+- Pakchunk file attribution (in order to separate game files from mod files mostly)
+- Direct file search (without having the full path), easy implementation
+- Bulk fetch (which requires multiple startups normally), or a continuous open stream
