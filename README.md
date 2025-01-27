@@ -1,11 +1,11 @@
-﻿# UE Extractor
+﻿# SZ Extractor
 
 A basic command-line tool for extracting **known (raw) files** and folders from Unreal Engine game data archives, specifically for **Dragon Ball: Sparking! Zero** but may work for many other games still. Based on [FModel](https://github.com/4sval/FModel/tree/master) and [CUE4Parse](https://github.com/FabianFG/CUE4Parse/tree/master).
 
 ## Usage
 
 ```bash
-UE_Extractor -p <content-path> -e <engine-version> -k <aes-key> -g <game-dir> [-o <output-dir>] [-d] [-v]
+SZ_Extractor -p <content-path> -e <engine-version> -k <aes-key> -g <game-dir> [-o <output-dir>] [-d] [-v]
 ```
 
 ### Arguments
@@ -21,7 +21,7 @@ UE_Extractor -p <content-path> -e <engine-version> -k <aes-key> -g <game-dir> [-
 ### Example
 
 ```bash
-UE_Extractor -p Game/Characters/Goku/Costumes/Base/Goku_Base.uasset -e GAME_UE5_1 -k 0xYourAesKeyHere -g "C:\Games\Dragon Ball Example\Paks"
+SZ_Extractor -p Game/Characters/Goku/Costumes/Base/Goku_Base.uasset -e GAME_UE5_1 -k 0xYourAesKeyHere -g "C:\Games\Dragon Ball Example\Paks"
 ```
 
 ## Notes
