@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace UE_Extractor
+namespace SZ_Extractor
 {
     class Program
     {
@@ -12,7 +12,7 @@ namespace UE_Extractor
                     try
                     {
                         options.Validate();
-                        Extractor extractor = new Extractor(options);
+                        Extractor extractor = new(options);
                         if (!String.IsNullOrEmpty(options.ContentPath))
                         {
                             extractor.Run();

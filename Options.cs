@@ -4,7 +4,7 @@ using CUE4Parse.UE4.Versions;
 using System.IO;
 using System;
 
-namespace UE_Extractor
+namespace SZ_Extractor
 {
     public class Options
     {

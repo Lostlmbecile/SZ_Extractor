@@ -10,7 +10,7 @@ using CUE4Parse.UE4.VirtualFileSystem;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace UE_Extractor
+namespace SZ_Extractor
 {
     public class Extractor
     {
@@ -59,11 +59,13 @@ namespace UE_Extractor
                 foreach (var file in vfs.Files)
                 {
                     var normalizedPath = NormalizePath(file.Key);
-                    if (!fileLocations.ContainsKey(normalizedPath))
+                    if (!fileLocations.TryGetValue(normalizedPath, out List<string>? value))
                     {
-                        fileLocations[normalizedPath] = new List<string>();
+                        value = ([]);
+                        fileLocations[normalizedPath] = value;
                     }
-                    fileLocations[normalizedPath].Add(Path.GetFileNameWithoutExtension(vfs.Name));
+
+                    value.Add(Path.GetFileNameWithoutExtension(vfs.Name));
                 }
             }
             return fileLocations.Where(kv => kv.Value.Count > 1).ToDictionary(kv => kv.Key, kv => kv.Value);
@@ -216,10 +218,23 @@ namespace UE_Extractor
         {
             return vfs.Files.Any(x => NormalizePath(x.Key).StartsWith(targetPathLower, StringComparison.OrdinalIgnoreCase));
         }
+        private static string NormalizePath(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                return path;
+            }
 
-        private static string NormalizePath(string path) => path
-            .Replace('/', '\\')
-            .TrimStart('\\').TrimEnd('\\');
+            string normalizedPath = path.Replace('/', '\\');
+
+            // Replace multiple consecutive slashes with a single slash
+            while (normalizedPath.Contains("\\\\"))
+            {
+                normalizedPath = normalizedPath.Replace("\\\\", "\\");
+            }
+
+            return normalizedPath.TrimStart('\\').TrimEnd('\\');
+        }
 
         private static readonly JsonSerializerOptions _serializerOptions = new() { WriteIndented = true };
         private class DuplicateEntry
