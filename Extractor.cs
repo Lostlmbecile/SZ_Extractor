@@ -1,14 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using CUE4Parse.Encryption.Aes;
+﻿using CUE4Parse.Encryption.Aes;
 using CUE4Parse.FileProvider;
 using CUE4Parse.UE4.Versions;
 using CUE4Parse.UE4.Objects.Core.Misc;
 using System.Text.Json;
 using CUE4Parse.UE4.VirtualFileSystem;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SZ_Extractor
 {
