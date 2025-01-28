@@ -8,7 +8,7 @@ namespace UE_Extractor
 {
     public class Options
     {
-        [Option('p', "content-path", Required = true, HelpText = "Virtual content path to extract")] 
+        [Option('p', "content-path", HelpText = "Virtual content path to extract")]
         public string ContentPath { get; set; }
 
         [Option('e', "engine-version", Required = true, HelpText = "Unreal Engine version")]
@@ -34,6 +34,11 @@ namespace UE_Extractor
             if (!Directory.Exists(GameDir))
             {
                 throw new ArgumentException($"Game directory does not exist: {GameDir}");
+            }
+
+            if (!DumpPaths && string.IsNullOrEmpty(ContentPath))
+            {
+                throw new ArgumentException("Content path is required when not dumping paths.");
             }
         }
     }

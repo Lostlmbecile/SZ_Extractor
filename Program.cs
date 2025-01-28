@@ -12,7 +12,11 @@ namespace UE_Extractor
                     try
                     {
                         options.Validate();
-                        new Extractor(options).Run();
+                        Extractor extractor = new Extractor(options);
+                        if (!String.IsNullOrEmpty(options.ContentPath))
+                        {
+                            extractor.Run();
+                        }
                     }
                     catch (ArgumentException ex)
                     {
