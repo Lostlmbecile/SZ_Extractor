@@ -2,6 +2,7 @@
 
 A basic command-line tool for extracting **known (raw) files** and folders from Unreal Engine game data archives, specifically for **Dragon Ball: Sparking! Zero** but may work for many other games still. Based on [FModel](https://github.com/4sval/FModel/tree/master) and [CUE4Parse](https://github.com/FabianFG/CUE4Parse/tree/master).
 
+If you want a server/api version see [this repo](https://github.com/Lostlmbecile/SZ_Extractor_Server)
 ## Usage
 
 ```bash
